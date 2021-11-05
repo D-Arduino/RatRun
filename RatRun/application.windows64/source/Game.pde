@@ -25,13 +25,17 @@ int score = 0;
 int skin;
 int Statik_skin;
 int speed = 2;
+
 long Timer;
 long Timer1;
 long Timer2;
+long Timer3;
+
 float wall1Y;
 float DoshikY = -100;
 float MusorY = -100;
 float wall2Y = -700;
+
 boolean side;
 boolean DoshikR = true;
 boolean MusorR = true;
@@ -54,8 +58,8 @@ void setup() {
   wall2 = loadImage("Steni2.png");
   Menu = loadImage("Menu.png");
   Shop = loadImage("Shop.png");
-  Doshik = loadImage("Doshik.png");
-  Musor = loadImage("packet.png");
+  Doshik = loadImage("Mel.png");
+  Musor = loadImage("Mana.png");
 
   progras = loadStrings("progras.mouse");
   skins = loadStrings("skins.mouse");
@@ -78,7 +82,7 @@ void setup() {
   Statik_skin = int(currentLine[1]);
   switch (int(currentLine[1])) {
   case 0: 
-    Krisa = loadImage("Krisa.png");
+    Krisa = loadImage("АМУСИС.png");
     break;
   case 1: 
     Krisa = loadImage("Ananim_Kris.png");

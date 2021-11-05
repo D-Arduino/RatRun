@@ -43,13 +43,17 @@ int score = 0;
 int skin;
 int Statik_skin;
 int speed = 2;
+
 long Timer;
 long Timer1;
 long Timer2;
+long Timer3;
+
 float wall1Y;
 float DoshikY = -100;
 float MusorY = -100;
 float wall2Y = -700;
+
 boolean side;
 boolean DoshikR = true;
 boolean MusorR = true;
@@ -72,8 +76,8 @@ public void setup() {
   wall2 = loadImage("Steni2.png");
   Menu = loadImage("Menu.png");
   Shop = loadImage("Shop.png");
-  Doshik = loadImage("Doshik.png");
-  Musor = loadImage("packet.png");
+  Doshik = loadImage("Mel.png");
+  Musor = loadImage("Mana.png");
 
   progras = loadStrings("progras.mouse");
   skins = loadStrings("skins.mouse");
@@ -96,7 +100,7 @@ public void setup() {
   Statik_skin = PApplet.parseInt(currentLine[1]);
   switch (PApplet.parseInt(currentLine[1])) {
   case 0: 
-    Krisa = loadImage("Krisa.png");
+    Krisa = loadImage("АМУСИС.png");
     break;
   case 1: 
     Krisa = loadImage("Ananim_Kris.png");
@@ -222,7 +226,6 @@ if ((MusorY > 418) && Mmside == !side) {
   MusorR = false; 
   DoshikR = false; 
   menu = 0;
-  noLoop();
   println("game over");
 }
 if (MusorY > 700){
@@ -334,18 +337,18 @@ public void OtrisivkaShop() {
     if (skin < 0) skin = 0; 
     if (skin == 9) skin = 0; 
       switch (skin) {
-       case 0: ShopKrisa = loadImage("Krisa.png");
-       text("КРЫСА", 70, 550);
-       textSize(25);
-       text("Самый обычный крыс, так-бы и бегал по канализации, если бы не эти пакеты", 32, 63, 350, 350);
+       case 0: ShopKrisa = loadImage("АМУСИС.png");
+       text("АМУСИС", 70, 550);
+       textSize(27);
+       text("Самый обычный обьект. Так бы и летал здесь если б знал зачем...", 32, 63, 350, 350);
        break;
-       case 1: ShopKrisa = loadImage("Ananim_Kris.png");
+       case 1: ShopKrisa = loadImage("ГРАНДУС.png");
        textSize(33);
-       text("КРЫСНОНИМУС", 70, 550);
+       text("ГРАНДУС", 70, 550);
 if (!bought_skin[skin]) text("25 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
- textSize(25);
+ textSize(27);
        text("Родом из Ананимусных лесов. Любитель тульских пряников", 32, 63, 350, 350);
        break;
        case 2: ShopKrisa = loadImage("ВДВ_Kris.png");
@@ -354,7 +357,7 @@ if (Statik_skin == skin) text("Выбрано!", 70, 590);
 if (!bought_skin[skin]) text("50 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Любил купаться в фонтане, и его смыло в канализацию", 32, 63, 350, 350);
        break;
        case 3: ShopKrisa = loadImage("ICE_Kris.png");
@@ -363,7 +366,7 @@ textSize(25);
 if (!bought_skin[skin]) text("60 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Самая сладкая крыса. Но не в прямом значении!", 32, 63, 350, 350);
        break;
        case 4: ShopKrisa = loadImage("CHOKO_Kris.png");
@@ -372,7 +375,7 @@ textSize(25);
 if (!bought_skin[skin]) text("75 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Нет, это не грязь, это шоколад. Но облизовать я бы его не стал...", 32, 63, 350, 350);
        break;
        case 5: ShopKrisa = loadImage("SHREK_Kris.png");
@@ -381,7 +384,7 @@ textSize(25);
 if (!bought_skin[skin]) text("80 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Зашол в туалет, искал книгу, и случайно нажал на смыв...", 32, 63, 350, 350);
        break;
        case 6: ShopKrisa = loadImage("GOLDEN_Kris.png");
@@ -390,7 +393,7 @@ textSize(25);
 if (!bought_skin[skin]) text("100 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Самая дорогая из всех эльфийских ценностей. Смотрит на мир в розовых очках", 32, 63, 350, 350);
        break;
        case 7: ShopKrisa = loadImage("AMONGUS_Kris.png");
@@ -399,7 +402,7 @@ textSize(25);
 if (!bought_skin[skin]) text("110 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Его выкинули с коробля, и он мутировал в плотных слоях отмасферы", 32, 63, 350, 350);
        break;
        case 8: ShopKrisa = loadImage("KIBER_Kris.png");
@@ -408,7 +411,7 @@ textSize(25);
 if (!bought_skin[skin]) text("120 Дошиков", 70, 590);
  if (bought_skin[skin] && Statik_skin != skin) text("Куплено", 70, 590);
 if (Statik_skin == skin) text("Выбрано!", 70, 590);
-textSize(25);
+textSize(27);
        text("Мощнейшее изобретение во всей конализации!", 32, 63, 350, 350);
        break;
       }
